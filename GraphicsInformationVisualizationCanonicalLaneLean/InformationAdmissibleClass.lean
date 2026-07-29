@@ -1,0 +1,25 @@
+import canonicalLaneMathlib.AdmissibleClass
+import GraphicsInformationVisualizationCanonicalLaneLean.ShannonSourceCoding
+import GraphicsInformationVisualizationCanonicalLaneLean.ChannelCapacity
+import GraphicsInformationVisualizationCanonicalLaneLean.RateDistortion
+import GraphicsInformationVisualizationCanonicalLaneLean.SourceCodingTheorem
+
+namespace HautevilleHouse
+namespace GraphicsInformationVisualizationCanonicalLaneLean
+
+structure InformationAdmittedObject where
+  sourcePackage : ShannonSourcePackage
+  channelPackage : ChannelPackage
+  rateDistortionPackage : RateDistortionPackage
+  sourceCodingTheoremPackage : SourceCodingTheoremPackage sourcePackage channelPackage
+  entropyClosed : ShannonSourceClosed sourcePackage
+  capacityClosed : ChannelClosed channelPackage
+  rateDistortionClosed : RateDistortionClosed rateDistortionPackage
+  sourceCodingClosed : SourceCodingTheoremClosed sourceCodingTheoremPackage
+  conclusion : entropyClosed ∧ capacityClosed ∧ rateDistortionClosed ∧ sourceCodingClosed
+
+def InformationWitnessClosed (O : InformationAdmittedObject) : Prop :=
+  O.conclusion
+
+end GraphicsInformationVisualizationCanonicalLaneLean
+end HautevilleHouse
